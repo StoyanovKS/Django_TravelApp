@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<section id="create">
+  <div class="form">
+    <h2>Share a New Trip</h2>
+    <form class="create-form" method="post" novalidate>
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+      <div>
+        <label>Destination:</label>
+        {{ form.destination }}
+      </div>
+      <div>
+        <label>Summary:</label>
+        {{ form.summary }}
+      </div>
+      <div>
+        <label>Started on:</label>
+        {{ form.start_date }}
+      </div>
+      <div>
+        <label>Duration:</label>
+        <div class="helptext">{{ form.duration.help_text }}</div>
+        {{ form.duration }}
+      </div>
+      <div>
+        <label>Image URL:</label>
+        {{ form.image_url }}
+      </div>
+      <button type="submit">Share</button>
+    </form>
+  </div>
+</section>
+{% endblock %}

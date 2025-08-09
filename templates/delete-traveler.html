@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<section id="edit">
+  <div class="form">
+    <h1>Do you like to delete your Traveler's Profile?</h1>
+    <form id="delete" method="post">{% csrf_token %}
+      <button type="submit">Yes</button>
+    </form>
+  </div>
+</section>
+{% endblock %}

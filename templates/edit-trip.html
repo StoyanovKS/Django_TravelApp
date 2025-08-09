@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<section id="edit">
+  <div class="form">
+    <h2>{% if request.resolver_match.url_name == 'trip_edit' %}Edit Trip{% else %}Delete Trip{% endif %}</h2>
+    <form class="edit-form" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">{% if request.resolver_match.url_name == 'trip_edit' %}Edit{% else %}Delete{% endif %}</button>
+    </form>
+  </div>
+</section>
+{% endblock %}
